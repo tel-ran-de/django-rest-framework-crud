@@ -4,6 +4,7 @@ services:
   djangoapp:
     container_name: djangoapp
     build: .
+    restart: unless-stopped
     ports:
       - "8000:8000"
     environment:
@@ -17,6 +18,7 @@ services:
   db:
     container_name: db
     image: postgres:12
+    restart: always
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
